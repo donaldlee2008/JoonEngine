@@ -222,9 +222,6 @@ class Sweep {
 	 * Add a new active region to the sweep line, *somewhere* below "regAbove" (according to where the new edge belongs in the sweep-line dictionary). The upper edge of the new region will be "eNewUp". Winding number and "inside" flag are not updated.
 	 */ {
 		ActiveRegion regNew = new ActiveRegion();
-		if (regNew == null)
-			throw new RuntimeException();
-
 		regNew.eUp = eNewUp;
 		/* __gl_dictListInsertBefore */
 		regNew.nodeUp = Dict.dictInsertBefore(tess.dict, regAbove.nodeUp, regNew);
@@ -1011,8 +1008,6 @@ class Sweep {
 	 */ {
 		GLUhalfEdge e;
 		ActiveRegion reg = new ActiveRegion();
-		if (reg == null)
-			throw new RuntimeException();
 
 		e = Mesh.__gl_meshMakeEdge(tess.mesh);
 		if (e == null)

@@ -1,19 +1,18 @@
 package com.joonsoft.joonengine.level;
 
-import com.joonsoft.joonengine.JoonengineGame;
+import java.util.HashMap;
+
 import com.joonsoft.joonengine.level.gameobject.GameObject;
 import com.joonsoft.joonengine.math.MathUtil;
-
-import java.util.HashMap;
+import com.joonsoft.joonengine.renderer.SkyBox;
 
 public class Level {
 
-	private int width, height;
-
 	public HashMap<Long, GameObject> gameObjectMap = new HashMap<Long, GameObject>();
-	private HashMap<GameObject, Long> reverseMap = new HashMap<GameObject, Long>();
 
-	private JoonengineGame game;
+	private HashMap<GameObject, Long> reverseMap = new HashMap<GameObject, Long>();
+	private int width, height;
+	private SkyBox skyBox;
 
 	/**
 	 * Creates a new level with the specific size.
@@ -23,8 +22,7 @@ public class Level {
 	 * @param height
 	 *            Height in units
 	 */
-	public Level(JoonengineGame game, int width, int height) {
-		this.game = game;
+	public Level(int width, int height) {
 		this.width = width;
 		this.height = height;
 	}
@@ -32,12 +30,12 @@ public class Level {
 	/**
 	 * Creates a new level with 4096 as width and height.
 	 */
-	public Level(JoonengineGame game) {
-		this(game, 4096, 4096);
+	public Level() {
+		this(4096, 4096);
 	}
 
-	public Level(JoonengineGame game, String name) {
-		this(game, 0, 0);
+	public Level(String name) {
+		this(0, 0);
 	}
 
 	public long addGameObject(GameObject gameObject) {
@@ -46,6 +44,14 @@ public class Level {
 		this.reverseMap.put(gameObject, id);
 		System.out.println("Added gameobject with id " + id);
 		return id;
+	}
+
+	public void setSkyBox(SkyBox skyBox) {
+		this.skyBox = skyBox;
+	}
+	
+	public SkyBox getSkyBox() {
+		return skyBox;
 	}
 
 	public GameObject getGameObject(long id) {
@@ -59,5 +65,13 @@ public class Level {
 
 	public long getID(GameObject object) {
 		return reverseMap.get(object);
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public int getHeight() {
+		return height;
 	}
 }

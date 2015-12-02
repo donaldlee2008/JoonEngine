@@ -120,13 +120,9 @@ class PriorityQSort extends PriorityQ {
 	}
 
 	private static void Swap(int[] array, int a, int b) {
-		if (true) {
-			int tmp = array[a];
-			array[a] = array[b];
-			array[b] = tmp;
-		} else {
-
-		}
+		int tmp = array[a];
+		array[a] = array[b];
+		array[b] = tmp;
 	}
 
 	private static class Stack {

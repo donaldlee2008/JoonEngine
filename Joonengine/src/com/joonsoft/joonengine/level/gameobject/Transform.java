@@ -50,4 +50,52 @@ public abstract class Transform {
 	public double getRotZ() {
 		return rotZ;
 	}
+
+	public double getCenterX() {
+		return (getPosX() * getScaleX()) / 2;
+	}
+
+	public double getCenterY() {
+		return (getPosY() * getScaleY()) / 2;
+	}
+
+	public double getCenterZ() {
+		return (getPosZ() * getScaleZ()) / 2;
+	}
+
+	public void setPosX(double posX) {
+		this.posX = posX;
+	}
+
+	public void setPosY(double posY) {
+		this.posY = posY;
+	}
+
+	public void setPosZ(double posZ) {
+		this.posZ = posZ;
+	}
+
+	public void setScaleX(double scaleX) {
+		this.scaleX = scaleX;
+	}
+
+	public void setScaleY(double scaleY) {
+		this.scaleY = scaleY;
+	}
+
+	public void setScaleZ(double scaleZ) {
+		this.scaleZ = scaleZ;
+	}
+
+	public void setRotX(double rotX) {
+		this.rotX = rotX;
+	}
+
+	public void setRotY(double rotY) {
+		this.rotY = rotY;
+	}
+
+	public void setRotZ(double rotZ) {
+		this.rotZ = rotZ;
+	}
 }

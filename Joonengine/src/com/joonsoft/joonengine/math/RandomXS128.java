@@ -11,6 +11,7 @@ import java.util.Random;
  * @author davebaol
  */
 public class RandomXS128 extends Random {
+	private static final long serialVersionUID = 1L;
 
 	/** Normalization constant for double. */
 	private static final double NORM_DOUBLE = 1.0 / (1L << 53);
